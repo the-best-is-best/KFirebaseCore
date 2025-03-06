@@ -39,7 +39,7 @@ tasks.withType<PublishToMavenRepository> {
 
 extra["packageNameSpace"] = "io.github.kfirebase_core"
 extra["groupId"] = "io.github.the-best-is-best"
-extra["artifactId"] = "io.github.the-best-is-best"
+extra["artifactId"] = "kfirebase-core"
 extra["version"] = "1.1.0"
 extra["packageName"] = "KFirebaseCore"
 extra["packageUrl"] = "https://github.com/the-best-is-best/KFirebaseCore"
