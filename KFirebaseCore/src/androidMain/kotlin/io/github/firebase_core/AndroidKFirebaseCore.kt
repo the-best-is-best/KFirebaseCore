@@ -4,9 +4,17 @@ import android.app.Activity
 import com.google.firebase.Firebase
 import com.google.firebase.initialize
 
-object AndroidKFirebaseCore {
 
-    fun initialize(activity: Activity) {
-        Firebase.initialize(context = activity)
+object AndroidKFirebaseCore {
+       var activity: WeakReference<Activity?> = WeakReference(null)
+
+        internal fun getActivity(): Activity {
+            return activity.get()!!
+        }
+
+        fun initialization(activity: Activity) {
+
+            this.activity = WeakReference(activity)
+        }
+
     }
-}
