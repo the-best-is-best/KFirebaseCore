@@ -69,4 +69,4 @@ println(app.options)
 
 ## Changelog
 
-- **v1.0.1**: Switched from CocoaPods to Swift Package Manager (SPM) for iOS dependencies.
+- **v1.1.0**: Switched from CocoaPods to Swift Package Manager (SPM) for iOS dependencies.
