@@ -37,20 +37,20 @@ tasks.withType<PublishToMavenRepository> {
 }
 
 
-extra["packageNameSpace"] = "io.github.kfirebase_messaging"
-extra["groupId"] = "com.example"
-extra["artifactId"] = "your-artifact-id"
-extra["version"] = "1.0.0"
-extra["packageName"] = ""
-extra["packageUrl"] = ""
-extra["packageDescription"] = ""
+extra["packageNameSpace"] = "io.github.kfirebase_core"
+extra["groupId"] = "io.github.the-best-is-best"
+extra["artifactId"] = "io.github.the-best-is-best"
+extra["version"] = "1.1.0"
+extra["packageName"] = "KFirebaseCore"
+extra["packageUrl"] = "https://github.com/the-best-is-best/KFirebaseCore"
+extra["packageDescription"] = "KFirebaseCore is a Kotlin Multiplatform library designed to streamline the integration of Firebase services in your mobile applications. With this library, developers can effortlessly initialize Firebase for both Android and iOS, enabling a unified and efficient development experience."
 extra["system"] = "GITHUB"
-extra["issueUrl"] = ""
-extra["connectionGit"] = ".git"
+extra["issueUrl"] = "https://github.com/the-best-is-best/KFirebaseCore/issues"
+extra["connectionGit"] = "https://github.com/the-best-is-best/KFirebaseCore.git"
 
-extra["developerName"] = ""
-extra["developerNameId"] = ""
-extra["developerEmail"] = ""
+extra["developerName"] = "Michelle Raouf"
+extra["developerNameId"] = "MichelleRaouf"
+extra["developerEmail"] = "eng.michelle.raouf@gmail.com"
 
 
 mavenPublishing {
@@ -60,7 +60,7 @@ mavenPublishing {
         extra["version"].toString()
     )
 
-    publishToMavenCentral(SonatypeHost.S01)
+    publishToMavenCentral(SonatypeHost.S01 , true)
     signAllPublications()
 
     pom {

@@ -1,45 +1,72 @@
-# Compose Multiplatform Application
+<h1 align="center">KFirebaseCore</h1><br>
+<div align="center">
+<a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
+<a href="https://android-arsenal.com/api?level=21" rel="nofollow">
+    <img alt="API" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat" style="max-width: 100%;">
+</a>
+  <img src="https://img.shields.io/badge/Platform-Android-brightgreen.svg?logo=android" alt="Badge Android" />
+  <img src="https://img.shields.io/badge/iOS-13%2B-blue.svg?logo=apple" alt="iOS 13+ Badge" />
 
-## Before running!
+<a href="https://github.com/the-best-is-best/"><img alt="Profile" src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" height="20"/></a>
+</div>
 
-- check your system with [KDoctor](https://github.com/Kotlin/kdoctor)
-- install JDK 17 or higher on your machine
-- add `local.properties` file to the project root and set a path to Android SDK there
+<br>
+
+### KFirebaseCore is a Kotlin Multiplatform library designed to streamline the integration of Firebase services in your mobile applications. With this library, developers can effortlessly initialize Firebase for both Android and iOS, enabling a unified and efficient development experience
+
+<hr>
+
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.the-best-is-best/kfirebase-core)](https://central.sonatype.com/artifact/io.github.the-best-is-best/kfirebase-core)
+
+KFirebaseCore is available on `mavenCentral()`.
+
+## Installation
+
+```kotlin
+implementation("io.github.the-best-is-best:kfirebase-core:")
+```
 
 ### Android
 
-To run the application on android device/emulator:
+```kotlin
+AndroidKFirebaseCore.initialize(this)
+```
 
-- open project in Android Studio and run imported android run configuration
+### iOS (Using Swift Package Manager - SPM)
 
-To build the application bundle:
+Make sure to add Firebase as a dependency using Swift Package Manager (SPM) instead of CocoaPods.
 
-- run `./gradlew :composeApp:assembleDebug`
-- find `.apk` file in `composeApp/build/outputs/apk/debug/composeApp-debug.apk`
-  Run android simulator UI tests: `./gradlew :composeApp:pixel5Check`
+1. Open your Xcode project.
+2. Navigate to `File > Add Packages...`.
+3. Enter Firebase repository URL: `https://github.com/firebase/firebase-ios-sdk`
+4. Choose `FirebaseCore` and add it to your project.
 
-### Desktop
+### iOS App Initialization
 
-Run the desktop application: `./gradlew :composeApp:run`
-Run desktop UI tests: `./gradlew :composeApp:jvmTest`
+```swift
+import Firebase
 
-### iOS
+@main
+struct MyApp: App {
+    init() {
+        FirebaseApp.configure()
+    }
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}
+```
 
-To run the application on iPhone device/simulator:
+### Usage
 
-- Open `iosApp/iosApp.xcproject` in Xcode and run standard configuration
-- Or
-  use [Kotlin Multiplatform Mobile plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile)
-  for Android Studio
-  Run iOS simulator UI tests: `./gradlew :composeApp:iosSimulatorArm64Test`
+```kotlin
+val app = KFirebaseCore.app()
+println(app.name)
+println(app.options)
+```
 
-### JS Browser (Experimental)
+## Changelog
 
-Run the browser application: `./gradlew :composeApp:jsBrowserDevelopmentRun --continue`
-Run browser UI tests: `./gradlew :composeApp:jsBrowserTest`
-
-### Wasm Browser (Alpha)
-
-Run the browser application: `./gradlew :composeApp:wasmJsBrowserDevelopmentRun --continue`
-Run browser UI tests: `./gradlew :composeApp:wasmJsBrowserTest`
-
+- **v1.0.1**: Switched from CocoaPods to Swift Package Manager (SPM) for iOS dependencies.
