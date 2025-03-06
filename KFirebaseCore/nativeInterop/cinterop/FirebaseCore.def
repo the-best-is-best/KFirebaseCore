@@ -1,0 +1,4 @@
+package = "io.github.native.kfirebasemessagcore"
+language = Objective-C
+headers = /Users/michelleraouf/Desktop/kmm/KFirebaseCore/KFirebaseCore/nativeInterop/cinterop/libs/FirebaseCore/FirebaseCore.h
+
