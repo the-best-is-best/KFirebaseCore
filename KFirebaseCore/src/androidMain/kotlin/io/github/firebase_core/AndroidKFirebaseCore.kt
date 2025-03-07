@@ -7,9 +7,11 @@ import java.lang.ref.WeakReference
 
 
 object AndroidKFirebaseCore {
-       var activity: WeakReference<Activity?> = WeakReference(null)
+       private var activity: WeakReference<Activity?> = WeakReference(null)
 
-        internal fun getActivity(): Activity {
+
+
+       fun getActivity(): Activity {
             return activity.get()!!
         }
 
