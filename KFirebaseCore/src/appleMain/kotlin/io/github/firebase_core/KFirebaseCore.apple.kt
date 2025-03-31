@@ -5,6 +5,13 @@ import io.github.firebase_core.models.KFirebaseOptions
 import io.github.native.kfirebasecore.FIRApp
 import kotlinx.cinterop.ExperimentalForeignApi
 
+object IOSKFirebaseCore {
+    @OptIn(ExperimentalForeignApi::class)
+    fun initialization() {
+        FIRApp.configure()
+    }
+}
+
 actual object KFirebaseCore {
     @OptIn(ExperimentalForeignApi::class)
     actual fun app(): KFirebaseAppDetails {

@@ -16,7 +16,7 @@ object AndroidKFirebaseCore {
         }
 
         fun initialization(activity: Activity) {
-
+            Firebase.initialize(activity)
             this.activity = WeakReference(activity)
         }
 
