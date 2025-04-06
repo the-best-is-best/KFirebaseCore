@@ -6,4 +6,6 @@ plugins {
     alias(libs.plugins.android.library) apply false
     id("com.google.gms.google-services") version "4.4.2" apply false
     alias(libs.plugins.maven.publish)
+    id("com.github.ben-manes.versions") version "0.52.0"
+
 }
