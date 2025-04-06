@@ -165,9 +165,9 @@ kotlin {
         androidMain.dependencies {
 //            implementation(compose.uiTooling)
 //            implementation(libs.androidx.activityCompose)
-
-            implementation(libs.firebase.common.ktx)
-
+            api(project.dependencies.platform(libs.firebase.bom))
+            api(libs.firebase.common.ktx)
+            api(libs.firebase.analytics)
         }
 
 //        jvmMain.dependencies {
