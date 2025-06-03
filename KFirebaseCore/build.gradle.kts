@@ -7,8 +7,6 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 
 plugins {
     alias(libs.plugins.multiplatform)
-//    alias(libs.plugins.compose.compiler)
-//    alias(libs.plugins.compose)
     alias(libs.plugins.android.library)
     id("maven-publish")
     id("signing")
@@ -40,7 +38,7 @@ tasks.withType<PublishToMavenRepository> {
 extra["packageNameSpace"] = "io.github.kfirebase_core"
 extra["groupId"] = "io.github.the-best-is-best"
 extra["artifactId"] = "kfirebase-core"
-extra["version"] = "1.2.0"
+extra["version"] = "1.2.1"
 extra["packageName"] = "KFirebaseCore"
 extra["packageUrl"] = "https://github.com/the-best-is-best/KFirebaseCore"
 extra["packageDescription"] = "KFirebaseCore is a Kotlin Multiplatform library designed to streamline the integration of Firebase services in your mobile applications. With this library, developers can effortlessly initialize Firebase for both Android and iOS, enabling a unified and efficient development experience."
@@ -157,7 +155,7 @@ kotlin {
         }
 
         commonTest.dependencies {
-            implementation(kotlin("test"))
+            // implementation(kotlin("test"))
 //            @OptIn(ExperimentalComposeLibrary::class)
 //            implementation(compose.uiTest)
         }
@@ -166,8 +164,8 @@ kotlin {
 //            implementation(compose.uiTooling)
 //            implementation(libs.androidx.activityCompose)
             api(project.dependencies.platform(libs.firebase.bom))
-            api(libs.firebase.common.ktx)
-            api(libs.firebase.analytics)
+            implementation(libs.firebase.common.ktx)
+            implementation(libs.firebase.analytics)
         }
 
 //        jvmMain.dependencies {
@@ -187,49 +185,13 @@ kotlin {
 
 android {
     namespace = extra["packageNameSpace"].toString()
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 21
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
-        }
 //        buildFeatures {
 //            //enables a Compose tooling support in the AndroidStudio
 //            compose = true
 //        }
     }
 }
-
-//https://developer.android.com/develop/ui/compose/testing#setup
-dependencies {
-    androidTestImplementation(libs.androidx.uitest.junit4)
-    debugImplementation(libs.androidx.uitest.testManifest)
-    //temporary fix: https://youtrack.jetbrains.com/issue/CMP-5864
-    androidTestImplementation("androidx.test:monitor") {
-        version { strictly("1.6.1") }
-    }
-}
-//compose.desktop {
-//    application {
-//        mainClass = "MainKt"
-//
-//        nativeDistributions {
-//            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-//            packageName = getPackageName
-//            packageVersion = "1.0.0"
-//
-//            linux {
-//                iconFile.set(project.file("desktopAppIcons/LinuxIcon.png"))
-//            }
-//            windows {
-//                iconFile.set(project.file("desktopAppIcons/WindowsIcon.ico"))
-//            }
-//            macOS {
-//                iconFile.set(project.file("desktopAppIcons/MacosIcon.icns"))
-//                bundleID = "org.company.app.desktopApp"
-//            }
-//        }
-//    }
-//}
