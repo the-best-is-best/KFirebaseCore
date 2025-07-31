@@ -20,12 +20,12 @@ actual object KFirebaseCore {
         return KFirebaseAppDetails(
             name = appDetails?.name,
             options = KFirebaseOptions(
+                appIdentifier = appDetails?.options?.bundleID,
                 apiKey = appDetails?.options?.APIKey,
                 projectId = appDetails?.options?.projectID,
                 databaseUrl = appDetails?.options?.databaseURL,
                 gcmSenderId = appDetails?.options?.GCMSenderID,
                 storageBucket = appDetails?.options?.storageBucket,
-                trackingId = appDetails?.options?.trackingID
             )
         )
     }

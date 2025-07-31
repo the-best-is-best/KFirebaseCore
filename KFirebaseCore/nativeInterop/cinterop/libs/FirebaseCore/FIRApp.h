@@ -45,7 +45,6 @@ NS_SWIFT_UNAVAILABLE("Use Swift's closure syntax instead.");
  * `FirebaseConfiguration.shared.setLoggerLevel(_:)` with the desired level.
  */
 NS_SWIFT_NAME(FirebaseApp)
-
 @interface FIRApp : NSObject
 
 /**
@@ -79,7 +78,7 @@ configure(options
  */
 // clang-format off
 + (void)configureWithName:(NSString *)name
-                  options:(FIROptions *)options NS_SWIFT_NAME
+        options:(FIROptions *)options NS_SWIFT_NAME
 
 (
 configure(name
@@ -89,19 +88,18 @@ configure(name
 /**
  * Returns the default app, or `nil` if the default app does not exist.
  */
-+ (nullable FIRApp
++ (nullable FIRApp *)defaultApp
 
-*)
-defaultApp NS_SWIFT_NAME(app());
+NS_SWIFT_NAME (app());
 
 /**
  * Returns a previously created `FirebaseApp` instance with the given name, or `nil` if no such app
  * exists. This method is thread safe.
  */
-+ (nullable FIRApp
++ (nullable FIRApp *)appNamed:(NSString *)name NS_SWIFT_NAME
 
-*)appNamed:(NSString *)
-name NS_SWIFT_NAME(app(name
+(
+app(name
 :));
 
 /**

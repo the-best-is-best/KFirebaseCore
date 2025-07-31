@@ -24,7 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
  * This interface provides global level properties that the developer can tweak.
  */
 NS_SWIFT_NAME(FirebaseConfiguration)
-
 @interface FIRConfiguration : NSObject
 
 /** Returns the shared configuration object. */

@@ -22,17 +22,15 @@ NS_ASSUME_NONNULL_BEGIN
  * This class provides constant fields of Google APIs.
  */
 NS_SWIFT_NAME(FirebaseOptions)
-
 @interface FIROptions : NSObject <NSCopying>
 
 /**
  * Returns the default options. The first time this is called it synchronously reads
  * GoogleService-Info.plist from disk.
  */
-+ (nullable FIROptions
++ (nullable FIROptions *)defaultOptions
 
-*)
-defaultOptions NS_SWIFT_NAME(defaultOptions());
+NS_SWIFT_NAME (defaultOptions());
 
 /**
  * An API key used for authenticating requests from your Apple app, e.g.
@@ -55,12 +53,6 @@ NS_SWIFT_NAME(apiKey);
 @property(nonatomic, copy, nullable) NSString *clientID;
 
 /**
- * Unused.
- */
-@property(nonatomic, copy, nullable) NSString *trackingID
-DEPRECATED_ATTRIBUTE;
-
-/**
  * The Project Number from the Google Developer's console, for example @"012345678901", used to
  * configure Firebase Cloud Messaging.
  */
@@ -73,12 +65,6 @@ NS_SWIFT_NAME(gcmSenderID);
 @property(nonatomic, copy, nullable) NSString *projectID;
 
 /**
- * Unused.
- */
-@property(nonatomic, copy, nullable) NSString *androidClientID
-DEPRECATED_ATTRIBUTE;
-
-/**
  * The Google App ID that is used to uniquely identify an instance of an app.
  */
 @property(nonatomic, copy) NSString *googleAppID;
@@ -87,11 +73,6 @@ DEPRECATED_ATTRIBUTE;
  * The database root URL, e.g. @"http://abc-xyz-123.firebaseio.com".
  */
 @property(nonatomic, copy, nullable) NSString *databaseURL;
-
-/**
- * The URL scheme used to set up Durable Deep Link service.
- */
-@property(nonatomic, copy, nullable) NSString *deepLinkURLScheme;
 
 /**
  * The Google Cloud Storage bucket name, e.g. @"abc-xyz-123.storage.firebase.com".
@@ -110,12 +91,12 @@ DEPRECATED_ATTRIBUTE;
  * This will read the file synchronously from disk.
  * For example:
  * ```swift
- *   if let path = Bundle.main.path(forResource:"GoogleServices-Info", ofType:"plist") {
+ *   if let path = Bundle.main.path(forResource:"GoogleService-Info", ofType:"plist") {
  *       let options = FirebaseOptions(contentsOfFile: path)
  *   }
  * ```
  * Note that it is not possible to customize `FirebaseOptions` for Firebase Analytics which expects
- * a static file named `GoogleServices-Info.plist` -
+ * a static file named `GoogleService-Info.plist` -
  * https://github.com/firebase/firebase-ios-sdk/issues/230.
  * Returns `nil` if the plist file does not exist or is invalid.
  */

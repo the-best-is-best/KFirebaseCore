@@ -6,12 +6,12 @@ data class KFirebaseAppDetails(
 )
 
 data class KFirebaseOptions(
+    val appIdentifier: String?,
     val apiKey: String?,
     val projectId: String?,
     val databaseUrl: String?,
     val gcmSenderId: String?,
     val storageBucket: String?,
-    val trackingId: String?,
 
 
     )
