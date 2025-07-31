@@ -22,10 +22,10 @@ KFirebaseCore is available on `mavenCentral()`.
 
 ## Version Compatibility
 
-| KFirebaseCore Version | Firebase Android SDK | Firebase iOS SDK | Minimum iOS Version |
-|-----------------------|----------------------|------------------|---------------------|
-| 1.2.1                 | Firebase v11.x       | Firebase v11.x   | iOS 13+             |
-| 2.0.0+                | Firebase v12.x       | Firebase v12.x   | iOS 15+             |
+| KFirebaseCore Version | Firebase iOS SDK | Minimum iOS Version |
+|-----------------------|------------------|---------------------|
+| 1.2.1                 | Firebase v11.x   | iOS 13+             |
+| 2.0.0                 | Firebase v12.x   | iOS 15+             |
 
 ## Installation
 
