@@ -35,9 +35,7 @@ NS_SWIFT_NAME(Timestamp)
 @interface FIRTimestamp : NSObject <NSCopying>
 
 /** :nodoc: */
-- (instancetype)init
-
-NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  * Creates a new timestamp.

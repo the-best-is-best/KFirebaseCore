@@ -28,17 +28,14 @@ NS_SWIFT_NAME(FirebaseOptions)
  * Returns the default options. The first time this is called it synchronously reads
  * GoogleService-Info.plist from disk.
  */
-+ (nullable FIROptions *)defaultOptions
-
-NS_SWIFT_NAME (defaultOptions());
++ (nullable FIROptions *)defaultOptions NS_SWIFT_NAME(defaultOptions());
 
 /**
  * An API key used for authenticating requests from your Apple app, e.g.
  * The key must begin with "A" and contain exactly 39 alphanumeric characters, used to identify your
  * app to Google servers.
  */
-@property(nonatomic, copy, nullable) NSString *APIKey
-NS_SWIFT_NAME(apiKey);
+@property(nonatomic, copy, nullable) NSString *APIKey NS_SWIFT_NAME(apiKey);
 
 /**
  * The bundle ID for the application. Defaults to `Bundle.main.bundleIdentifier` when not set
@@ -56,8 +53,7 @@ NS_SWIFT_NAME(apiKey);
  * The Project Number from the Google Developer's console, for example @"012345678901", used to
  * configure Firebase Cloud Messaging.
  */
-@property(nonatomic, copy) NSString *GCMSenderID
-NS_SWIFT_NAME(gcmSenderID);
+@property(nonatomic, copy) NSString *GCMSenderID NS_SWIFT_NAME(gcmSenderID);
 
 /**
  * The Project ID from the Firebase console, for example @"abc-xyz-123".
@@ -110,17 +106,10 @@ NS_SWIFT_NAME(gcmSenderID);
  */
 - (instancetype)initWithGoogleAppID:(NSString *)googleAppID
                         GCMSenderID:(NSString *)GCMSenderID
-NS_SWIFT_NAME
-
-(
-init(googleAppID
-:gcmSenderID:))
-NS_DESIGNATED_INITIALIZER;
+    NS_SWIFT_NAME(init(googleAppID:gcmSenderID:))NS_DESIGNATED_INITIALIZER;
 
 /** Unavailable. Please use `init(contentsOfFile:)` or `init(googleAppID:gcmSenderID:)` instead. */
-- (instancetype)init
-
-NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 

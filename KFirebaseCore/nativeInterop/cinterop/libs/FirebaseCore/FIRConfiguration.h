@@ -27,8 +27,7 @@ NS_SWIFT_NAME(FirebaseConfiguration)
 @interface FIRConfiguration : NSObject
 
 /** Returns the shared configuration object. */
-@property(class, nonatomic, readonly) FIRConfiguration *sharedInstance
-NS_SWIFT_NAME(shared);
+@property(class, nonatomic, readonly) FIRConfiguration *sharedInstance NS_SWIFT_NAME(shared);
 
 /**
  * Sets the logging level for internal Firebase logging. Firebase will only log messages
