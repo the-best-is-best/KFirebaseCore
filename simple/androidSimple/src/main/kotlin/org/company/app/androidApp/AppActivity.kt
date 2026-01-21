@@ -1,13 +1,11 @@
-package io.github.sample
+package org.company.app.androidApp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import io.github.sample.App
 import io.github.firebase_core.AndroidKFirebaseCore
-import io.github.firebase_core.KFirebaseCore
 
 class AppActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,8 +16,4 @@ class AppActivity : ComponentActivity() {
     }
 }
 
-@Preview
-@Composable
-fun AppPreview() {
-    App()
-}
+

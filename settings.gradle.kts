@@ -31,4 +31,5 @@ dependencyResolutionManagement {
     }
 }
 include(":KFirebaseCore")
-include(":simple:composeApp")
+include(":simple:sharedUI")
+include(":simple:androidSimple")

@@ -9,17 +9,14 @@ plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.compose)
-    alias(libs.plugins.android.application)
-    id("com.google.gms.google-services")
+    alias(libs.plugins.androidKotlinMultiplatformLibrary)
+//    id("com.google.gms.google-services")
 
 }
 
 kotlin {
     jvmToolchain(17)
-    androidTarget {
-        //https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-test.html
-        instrumentedTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
-    }
+
 
 //    jvm()
 //
@@ -42,23 +39,19 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
+            implementation(libs.runtime)
+            implementation(libs.foundation)
+            implementation(libs.material3)
+            implementation(libs.components.resources)
+            implementation(libs.ui.tooling.preview)
 
             implementation(project(":KFirebaseCore"))
         }
 
-        commonTest.dependencies {
-            implementation(kotlin("test"))
-            @OptIn(ExperimentalComposeLibrary::class)
-            implementation(compose.uiTest)
-        }
+
 
         androidMain.dependencies {
-            implementation(compose.uiTooling)
+            implementation(libs.ui.tooling)
             implementation(libs.androidx.activityCompose)
         }
 
@@ -70,24 +63,15 @@ kotlin {
         }
 
     }
-}
 
 
-android {
-    namespace = "io.github.sample"
-    compileSdk = 36
-
-    defaultConfig {
+    android {
+        namespace = "io.github.sample"
+        compileSdk = 36
         minSdk = 23
-        targetSdk = 36
-
-        applicationId = "org.company.app.androidApp"
-        versionCode = 1
-        versionName = "1.0.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 }
+
 
 
 compose.desktop {

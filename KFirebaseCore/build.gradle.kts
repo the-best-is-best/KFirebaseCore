@@ -6,7 +6,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 
 plugins {
     alias(libs.plugins.multiplatform)
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.androidKotlinMultiplatformLibrary)
     id("maven-publish")
     id("signing")
     alias(libs.plugins.maven.publish)
@@ -37,7 +37,7 @@ tasks.withType<PublishToMavenRepository> {
 extra["packageNameSpace"] = "io.github.kfirebase_core"
 extra["groupId"] = "io.github.the-best-is-best"
 extra["artifactId"] = "kfirebase-core"
-extra["version"] = "2.1.1"
+extra["version"] = "2.1.2"
 extra["packageName"] = "KFirebaseCore"
 extra["packageUrl"] = "https://github.com/the-best-is-best/KFirebaseCore"
 extra["packageDescription"] = "KFirebaseCore is a Kotlin Multiplatform library designed to streamline the integration of Firebase services in your mobile applications. With this library, developers can effortlessly initialize Firebase for both Android and iOS, enabling a unified and efficient development experience."
@@ -99,10 +99,7 @@ val getPackageName = extra["packageName"].toString()
 
 kotlin {
     jvmToolchain(17)
-    androidTarget {
-        //https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-test.html
-        instrumentedTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
-    }
+
 
 //    jvm()
 //
@@ -179,18 +176,14 @@ kotlin {
         }
 
     }
-}
 
 
-android {
-    namespace = extra["packageNameSpace"].toString()
-    compileSdk = 36
 
-    defaultConfig {
+    android {
+        namespace = project.extra["packageNameSpace"].toString()
+        compileSdk = 36
         minSdk = 23
-//        buildFeatures {
-//            //enables a Compose tooling support in the AndroidStudio
-//            compose = true
-//        }
+
     }
 }
+

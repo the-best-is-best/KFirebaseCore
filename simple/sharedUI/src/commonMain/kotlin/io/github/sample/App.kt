@@ -21,7 +21,7 @@ import io.github.firebase_core.KFirebaseCore
 import io.github.sample.theme.AppTheme
 
 @Composable
-internal fun App() = AppTheme {
+fun App() = AppTheme {
     var projectId by remember { mutableStateOf("") }
     Column(
         modifier = Modifier
