@@ -37,7 +37,7 @@ tasks.withType<PublishToMavenRepository> {
 extra["packageNameSpace"] = "io.github.kfirebase_core"
 extra["groupId"] = "io.github.the-best-is-best"
 extra["artifactId"] = "kfirebase-core"
-extra["version"] = "2.1.0"
+extra["version"] = "2.1.1"
 extra["packageName"] = "KFirebaseCore"
 extra["packageUrl"] = "https://github.com/the-best-is-best/KFirebaseCore"
 extra["packageDescription"] = "KFirebaseCore is a Kotlin Multiplatform library designed to streamline the integration of Firebase services in your mobile applications. With this library, developers can effortlessly initialize Firebase for both Android and iOS, enabling a unified and efficient development experience."
